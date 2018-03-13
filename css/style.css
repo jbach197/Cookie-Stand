@@ -1,4 +1,23 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: rgb(248, 242, 237);
+}
+
+ul {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+li {
+  font-family: 'Crimson Text', serif;
+  font-weight: normal;
+}
+h1 {
+  font: sans-serif;
+  font-size: 24px;
+  color: rgb(6, 156, 119);
+}
+
+p {
+  font-family: 'Crimson Text', serif;
+  font-size: 16px;
 }
