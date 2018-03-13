@@ -1,7 +1,25 @@
+'use strict';
+
 //Function to calc random number
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+function Location(locationName, minCustomers, maxCustomers, cookiePerSale ){
+  this.locationName = locationName;
+  this.locationHours = ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+  this.minCustomers = minCustomers;
+  this.maxCustomers = maxCustomers
+  this.avgCookiePerSale = cookiePerSale;
+}
+
+var pike = new Location('First and Pike', 23, 65, 6.3);
+var seaTac = new Location('SeaTac Airport', 3, 24, 1.2);
+var seattleCenter = new Location('Seattle Center', 11, 38, 3.7);
+var capitalHill = new Location('Capital Hill', 20, 38, 2.3);
+var alki = new Location('Alki', 2, 16, 4.6);
+
+
+/*
 //Information for Pike location object
 var arrayOfRandomCookiesPike = [];
 var pike = {
@@ -110,7 +128,7 @@ seattleCenter.salesPerHourSeattleCenter();
 */
 
 //Capital Hill
-var arrayOfRandomCookiesCapital = [];
+/*var arrayOfRandomCookiesCapital = [];
 var capital = {
   locationName: 'Capital Hill',
   locationHours: ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
@@ -180,3 +198,4 @@ randomCookiesAlki: function () {
 }
 alki.randomCookiesAlki();
 alki.salesPerHourAlki();
+*/
