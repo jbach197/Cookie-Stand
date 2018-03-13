@@ -3,15 +3,20 @@
 //Function to calc random number
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
-}
+};
+
+var allLocations = [];
+//Object Constructor
 function Location(locationName, minCustomers, maxCustomers, cookiePerSale ){
   this.locationName = locationName;
   this.locationHours = ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
-  this.avgCookiePerSale = cookiePerSale
-}
+  this.avgCookiePerSale = cookiePerSale;
+  allLocations.push(this);
+};
 
+//Prototype function to calc the sales per location
 Location.prototype.sales = function () {
 
   salesArray = [];
@@ -32,6 +37,36 @@ var seattleCenter = new Location('Seattle Center', 11, 38, 3.7);
 var capitalHill = new Location('Capital Hill', 20, 38, 2.3);
 var alki = new Location('Alki', 2, 16, 4.6);
 
+//Create table
+var salesTable = document.getElementById('sales');
+
+//Create table header row
+function makeHeaderRow() {
+  var headerTrElement = document.createElement('tr');
+  var thElement = document.createElement('th');
+  thElement.textContent = '6:00am';
+  headerTrElement.appendChild(thElement);
+
+  salesTable.appendChild(headerTrElement)
+}
+
+
+//Push data into table by location.
+Location.prototype.render = function () {
+  var trElement = document.createElement('tr');
+  var tdElement = document.createElement('td');
+  tdElement.textContent = this.locationName;
+  trElement.appendChild(tdElement);
+
+  salesTable.appendChild(trElement);
+};
+pike.render();
+seaTac.render();
+seattleCenter.render();
+capitalHill.render();
+alki.render();
+
+pike.sales();
 
 /*
 //Information for Pike location object
