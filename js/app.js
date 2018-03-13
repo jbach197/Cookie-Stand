@@ -14,13 +14,13 @@ var pike = {
 randomCookiesPike: function () {
   var arrayOfRandomCookiesPike = [];
   for (i=0; i < this.locationHours.length; i++) {
-    var randomCookies = Math.floor(this.cusstomers * this.avgCookiePerSale);
+    var randomCookiesPike = Math.floor(this.cusstomers * this.avgCookiePerSale);
   //Push data into an array.
-    arrayOfRandomCookiesPike.push(randomCookies);
+    arrayOfRandomCookiesPike.push(randomCookiesPike);
 
-    var cookies = arrayOfRandomCookiesPike;
+    var cookiesPike = arrayOfRandomCookiesPike;
   }
-  return [cookies];
+  return [cookiesPike];
  },
 //Write the sales data onto the page
   salesPerHourPike: function () {
@@ -49,14 +49,14 @@ var seaTac = {
   maxCustomers: 24,
   avgCookiePerSale: 1.2,
   randomCookiesSeaTac: function () {
-    var arrayOfRandomCookiesseaTac = [];
+    var arrayOfRandomCookiesSeaTac = [];
     for (i=0; i < this.locationHours.length; i++) {
-      var randomCookies = Math.floor(this.cusstomers * this.avgCookiePerSale);
-      arrayOfRandomCookiesSeaTac.push(randomCookies);
+      var randomCookiesSeaTac = Math.floor(this.cusstomers * this.avgCookiePerSale);
+      arrayOfRandomCookiesSeaTac.push(randomCookiesSeaTac);
 
-      var cookies = arrayOfRandomCookiesSeaTac;
+      var cookiesSeaTac = arrayOfRandomCookiesSeaTac;
   }
-  return [cookies];
+  return [cookiesSeaTac];
  },
   salesPerHourSeaTac: function () {
 
@@ -108,24 +108,25 @@ var seattleCenter = {
 seattleCenter.randomCookiesSeattleCenter();
 seattleCenter.salesPerHourSeattleCenter();
 */
+
 //Capital Hill
 var arrayOfRandomCookiesCapital = [];
 var capital = {
   locationName: 'Capital Hill',
   locationHours: ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
-  minCustomers: 23,
-  maxCustomers: 65,
-  avgCookiePerSale: 6.3,
+  minCustomers: 20,
+  maxCustomers: 30,
+  avgCookiePerSale: 2.3,
 
 randomCookiesCapital: function () {
   var arrayOfRandomCookiesCapital = [];
   for (i=0; i < this.locationHours.length; i++) {
-    var randomCookies = Math.floor(this.cusstomers * this.avgCookiePerSale);
-    arrayOfRandomCookiesCapital.push(randomCookies);
+    var randomCookiesCapital = Math.floor(this.cusstomers * this.avgCookiePerSale);
+    arrayOfRandomCookiesCapital.push(randomCookiesCapital);
 
-    var cookies = arrayOfRandomCookiesCapital;
+    var cookiesCapital = arrayOfRandomCookiesCapital;
   }
-  return [cookies];
+  return [cookiesCapital];
  },
 
   salesPerHourCapital: function () {
@@ -149,19 +150,19 @@ var arrayOfRandomCookiesAlki = [];
 var alki = {
   locationName: 'Alki',
   locationHours: ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
-  minCustomers: 23,
-  maxCustomers: 65,
-  avgCookiePerSale: 6.3,
+  minCustomers: 2,
+  maxCustomers: 16,
+  avgCookiePerSale: 4.6,
 
 randomCookiesAlki: function () {
   var arrayOfRandomCookiesAlki = [];
   for (i=0; i < this.locationHours.length; i++) {
-    var randomCookies = Math.floor(this.cusstomers * this.avgCookiePerSale);
-    arrayOfRandomCookiesAlki.push(randomCookies);
+    var randomCookiesAlki = Math.floor(this.cusstomers * this.avgCookiePerSale);
+    arrayOfRandomCookiesAlki.push(randomCookiesAlki);
 
     var cookies = arrayOfRandomCookiesAlki;
   }
-  return [cookies];
+  return [cookiesAlki];
  },
 
   salesPerHourAlki: function () {
