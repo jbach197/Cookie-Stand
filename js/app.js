@@ -40,7 +40,7 @@ pike.randomCookiesPike();
 pike.salesPerHourPike();
 
 
-//Repeat above steps for SeaTac location
+//SeaTac
 var arrayOfRandomCookiesSeaTac = [];
 var seaTac = {
   locationName: 'Seattle-Tacoma International Airport',
@@ -74,3 +74,72 @@ var seaTac = {
 seaTac.randomCookiesSeaTac();
 seaTac.salesPerHourSeaTac();
 
+//Seattle Center
+/*var arrayOfRandomCookiesSeattleCenter = [];
+var seattleCenter = {
+  locationName: 'Seattle Center',
+  locationHours: ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+  minCustomers: 11,
+  maxCustomers: 38,
+  avgCookiePerSale: 3.7,
+  randomCookiesSeattleCenter: function () {
+    var arrayOfRandomCookiesSeattleCenter = [];
+    for (i=0; i < this.locationHours.length; i++) {
+      var randomCookies = Math.floor(this.cusstomers * this.avgCookiePerSale);
+      arrayOfRandomCookiesSeattleCenter.push(randomCookies);
+
+      var cookies = arrayOfRandomCookiesSeattleCenter;
+  }
+  return [cookies];
+ },
+  salesPerHourCapital: function () {
+
+    var capitalContainer = document.getElementById('capital');
+      for(i = 0; i < this.locationHours.length; i++) {
+
+        var capitalElement = document.createElement('li');
+
+        capitalElement.textContent = this.locationHours[i] + ': ' + this.randomCookiesCapital[i] + ' cookies';
+        capitalContainer.appendChild(capital);
+    
+  }
+}
+}
+seattleCenter.randomCookiesSeattleCenter();
+seattleCenter.salesPerHourSeattleCenter();
+*/
+//Capital Hill
+var arrayOfRandomCookiesCapital = [];
+var capital = {
+  locationName: 'First and Pike',
+  locationHours: ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+  minCustomers: 23,
+  maxCustomers: 65,
+  avgCookiePerSale: 6.3,
+
+randomCookiesCapital: function () {
+  var arrayOfRandomCookiesCapital = [];
+  for (i=0; i < this.locationHours.length; i++) {
+    var randomCookies = Math.floor(this.cusstomers * this.avgCookiePerSale);
+    arrayOfRandomCookiesCapital.push(randomCookies);
+
+    var cookies = arrayOfRandomCookiesCapital;
+  }
+  return [cookies];
+ },
+
+  salesPerHourCapital: function () {
+
+    var capitalContainer = document.getElementById('capital');
+      for(i = 0; i < this.locationHours.length; i++) {
+
+        var capitalElement = document.createElement('li');
+
+        capitalElement.textContent = this.locationHours[i] + ': ' + this.randomCookiesCapital[i] + ' cookies';
+        capitalContainer.appendChild(capitalElement);
+    
+  }
+}
+}
+capital.randomCookiesCapital();
+capital.salesPerHourCapital();
