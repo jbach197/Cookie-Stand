@@ -8,9 +8,23 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale ){
   this.locationName = locationName;
   this.locationHours = ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
   this.minCustomers = minCustomers;
-  this.maxCustomers = maxCustomers
-  this.avgCookiePerSale = cookiePerSale;
+  this.maxCustomers = maxCustomers;
+  this.avgCookiePerSale = cookiePerSale
 }
+
+Location.prototype.sales = function () {
+
+  salesArray = [];
+  for(i = 0; i <= this.locationHours.length; i++) {
+  
+  var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
+  salesArray.push(sales);
+  
+  }
+  return salesArray
+  
+  };
+
 
 var pike = new Location('First and Pike', 23, 65, 6.3);
 var seaTac = new Location('SeaTac Airport', 3, 24, 1.2);
