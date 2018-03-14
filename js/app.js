@@ -59,11 +59,15 @@ function makeHeaderRow () {
     thElement.textContent = locationHoursArray[i];
     headerTrElement.appendChild(thElement);
     }
+    thElement.textContent = 'Daily Location Total';
+    headerTrElement.appendChild(thElement);
+
     salesTable.appendChild(headerTrElement);
 }
 
 makeHeaderRow();
 
+//Enter location sales data
 Location.prototype.render = function () {
   var trElement = document.createElement('tr');
   var tdElement = document.createElement('td');
@@ -76,7 +80,7 @@ Location.prototype.render = function () {
     tdElement.textContent = this.sales();
     trElement.appendChild(tdElement);
 }
-    salesTable.appendChild(trElement);
+   salesTable.appendChild(trElement);
 };
 
 //Call render functions
@@ -85,3 +89,16 @@ seaTac.render();
 seattleCenter.render();
 capitalHill.render();
 alki.render();
+
+//Create footer row
+function makeFooterRow () {
+  var headerTrElement = document.createElement('tr');
+  var thElement = document.createElement('th');
+
+  thElement.textContent = 'Totals';
+  headerTrElement.appendChild(thElement);
+  headerTrElement.appendChild(thElement);
+
+  salesTable.appendChild(headerTrElement);
+}
+makeFooterRow();
