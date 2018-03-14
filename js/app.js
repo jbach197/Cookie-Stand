@@ -19,7 +19,7 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale){
 };
 
 //Function to calc the sales per location
-Location.prototype.sales = function () {
+Location.prototype.cookieSales = function () {
   var salesArray = [];
   for(var i = 0; i <= locationHoursArray.length; i++) {
     var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
@@ -37,11 +37,7 @@ var capitalHill = new Location('Capital Hill', 20, 38, 2.3);
 var alki = new Location('Alki', 2, 16, 4.6);
 
 //Call sales function to populate sales data
-pike.sales();
-seaTac.sales();
-seattleCenter.sales();
-capitalHill.sales();
-alki.sales();
+
 
 //Create table
 var salesTable = document.getElementById('sales');
