@@ -2,12 +2,12 @@
 
 //Declare global variables
 var allLocations = [];
-var locationHoursArray = ['6:00am' ,'7:00am' ,'8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
+var locationHoursArray = ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 //Function for random number calc used in the object prototype.
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
-};
+}
 
 //Object Constructor
 function Location(locationName, minCustomers, maxCustomers, cookiePerSale, sales){
@@ -16,15 +16,17 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale, sales
   this.maxCustomers = maxCustomers;
   this.avgCookiePerSale = cookiePerSale;
   allLocations.push(this);
-};
+}
 
 //Function to calc the sales per location
 Location.prototype.cookieSales = function () {
   var cookieSalesArray = [];
   
   for(var i = 0; i < locationHoursArray.length; i++) {
+    
     var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
-      cookieSalesArray.push(sales);
+    cookieSalesArray.push(sales);
+
     return cookieSalesArray;
     }
   }
@@ -80,6 +82,7 @@ Location.prototype.render = function () {
     tdElement.textContent = this.cookieSales();
     trElement.appendChild(tdElement);
 }
+
    salesTable.appendChild(trElement);
 };
 
@@ -95,10 +98,12 @@ function makeFooterRow () {
   var headerTrElement = document.createElement('tr');
   var thElement = document.createElement('th');
 
-  thElement.textContent = 'Totals';
+  thElement.textContent = 'Hourly Totals';
   headerTrElement.appendChild(thElement);
   headerTrElement.appendChild(thElement);
 
   salesTable.appendChild(headerTrElement);
 }
 makeFooterRow();
+
+
