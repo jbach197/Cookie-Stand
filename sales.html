@@ -11,9 +11,35 @@
 
   <Body>
     <h1>Cookies Sold by Location</h1>
-    <p>  The table shows an estimation of cookies per hour for each location.  Based on a random number of customers per hour at each location.
+    <p>  The table shows an estimation of cookies per hour for each location.  Based on a random number of customers per hour at each location. </p>
+
     <table id="sales">
     </table>
+
+    <form id="newLocationForm">
+      <fieldset>
+        <legend>Add a New Location</legend>
+
+        <label for="locationName">Location Name</label>
+        <input type="text" name="locationName">
+
+        <label for="minCustomer">Minimum Customers per Hour</label>
+        <input type="number" name="minCustomer">
+
+        <label for="maxCustomer">Maximum Customers per Hour</label>
+        <input type="number" name="maxCustomer">
+
+        <label for="avgCookie">Average Cookies per Sale</label>
+        <input type="number" name="avgCookie">
+
+        <button>Add a Location</button>
+      </fieldset>
+    </form>
+
+
+
+
+
     <img src="img/salmon.png" alt="Picture of a salmon" title="This is what a salmon looks like" class="small">
   
     <script src="js/app.js"></script>

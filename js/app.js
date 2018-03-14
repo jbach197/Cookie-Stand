@@ -21,12 +21,14 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale, sales
 //Function to calc the sales per location
 Location.prototype.cookieSales = function () {
   var cookieSalesArray = [];
+  var counter = 0;
   
   for(var i = 0; i < locationHoursArray.length; i++) {
     
     var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
     cookieSalesArray.push(sales);
 
+    counter += sales;
     return cookieSalesArray;
     }
   }
