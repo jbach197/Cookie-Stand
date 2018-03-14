@@ -1,26 +1,37 @@
 body {
-  background-color: salmon
+  background-color: rgb(255, 149, 137)
 }
 
-div # {
-
-}
-ul {
-  font-family: sans-serif;
-  font-weight: bold;
+img.small {
+  width: 200px;
 }
 
-li {
-  font-family: 'Crimson Text', serif;
-  font-weight: normal;
-}
 h1 {
-  font: sans-serif;
+  font-family: 'Cagliostro', sans-serif;
   font-size: 24px;
   color: rgb(6, 105, 80);
+}
+table {
+	empty-cells: hide;
+}
+
+td {
+	padding: 10px;
+	border: 15px;
+  border: 1px solid black;
+  background: white;
+}
+
+th {
+  background-color: rgb(104, 233, 201);
+  font-weight: bold;
 }
 
 p {
   font-family: 'Crimson Text', serif;
   font-size: 16px;
 }
+
+
+
+/*font-family: 'Crimson Text', serif;**/
