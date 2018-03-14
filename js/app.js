@@ -20,14 +20,14 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale, sales
 
 //Function to calc the sales per location
 Location.prototype.cookieSales = function () {
-  var salesArray = [];
-  for(var i = 0; i <= locationHoursArray.length; i++) {
+  var cookieSalesArray = [];
+  
+  for(var i = 0; i < locationHoursArray.length; i++) {
     var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
-
-    return salesArray;
-    salesArray.push(sales);
+      cookieSalesArray.push(sales);
+    return cookieSalesArray;
     }
-  };
+  }
 
 //Populate location data
 var pike = new Location('First and Pike', 23, 65, 6.3);
@@ -36,10 +36,12 @@ var seattleCenter = new Location('Seattle Center', 11, 38, 3.7);
 var capitalHill = new Location('Capital Hill', 20, 38, 2.3);
 var alki = new Location('Alki', 2, 16, 4.6);
 
-console.log(pike.cookieSales);
-
 //Call sales function to populate sales data
-
+pike.cookieSales();
+seaTac.cookieSales();
+seattleCenter.cookieSales();
+capitalHill.cookieSales();
+alki.cookieSales();
 
 //Create table
 var salesTable = document.getElementById('sales');
@@ -73,9 +75,9 @@ Location.prototype.render = function () {
   tdElement.textContent = this.locationName;
   trElement.appendChild(tdElement);
   
-  for(var i = 0; i <= locationHoursArray.length; i++){
+  for(var i = 0; i < locationHoursArray.length; i++){
     tdElement = document.createElement('td');
-    tdElement.textContent = this.cookieSales[i];
+    tdElement.textContent = this.cookieSales();
     trElement.appendChild(tdElement);
 }
    salesTable.appendChild(trElement);
