@@ -15,12 +15,11 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale, sales
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avgCookiePerSale = cookiePerSale;
-  this.cookieSales = sales
   allLocations.push(this);
 };
 
 //Function to calc the sales per location
-/*Location.prototype.cookieSales = function () {
+Location.prototype.cookieSales = function () {
   var salesArray = [];
   for(var i = 0; i <= locationHoursArray.length; i++) {
     var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
@@ -29,13 +28,13 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale, sales
     salesArray.push(sales);
     }
   };
-*/
+
 //Populate location data
-var pike = new Location('First and Pike', 23, 65, 6.3, [5, 10, 15, 20, 25]);
-var seaTac = new Location('SeaTac Airport', 3, 24, 1.2, [1, 2, 3, 4, 5]);
-var seattleCenter = new Location('Seattle Center', 11, 38, 3.7, [2, 4, 6, 8, 10]);
-var capitalHill = new Location('Capital Hill', 20, 38, 2.3, [3, 6, 9, 12, 15]);
-var alki = new Location('Alki', 2, 16, 4.6, [4, 8, 12, 16, 20]);
+var pike = new Location('First and Pike', 23, 65, 6.3);
+var seaTac = new Location('SeaTac Airport', 3, 24, 1.2);
+var seattleCenter = new Location('Seattle Center', 11, 38, 3.7);
+var capitalHill = new Location('Capital Hill', 20, 38, 2.3);
+var alki = new Location('Alki', 2, 16, 4.6);
 
 console.log(pike.cookieSales);
 
@@ -50,7 +49,7 @@ function makeHeaderRow () {
   var headerTrElement = document.createElement('tr');
   var thElement = document.createElement('th');
 
-  thElement.textContent = '';
+  thElement.textContent = 'Location';
   headerTrElement.appendChild(thElement);
 
     for(var i = 0; i <= locationHoursArray.length; i++){
