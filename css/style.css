@@ -9,19 +9,30 @@ img.small {
 
 h1 {
   font-family: 'Cagliostro', sans-serif;
-  font-size: 24px;
+  font-size: 2em;
   color: rgb(6, 105, 80);
 }
-table {
+
+table.sales {
   empty-cells: hide;
-  border: solid black 2px;
-  margin: 30px;
+  margin: 1em;
+}
+
+table.sales td:hover { 
+   color: red;
+   font-weight: bold;
+}
+
+table.sales tr:nth-child(odd) {
+  background: gray;
+}
+
+tr, td {
+  border-bottom: 2px solid rgb(6, 105, 80);
 }
 
 td {
-	padding: 10px;
-	border: 15px;
-  border: 1px solid black;
+	padding: .75em;
   background: white;
 }
 
@@ -29,14 +40,15 @@ th {
   background-color: rgb(104, 233, 201);
   font-weight: bold;
   text-align: center;
+  padding: .5em;
 }
-tr:nth-child(even) {
-  background-color: lightgray;
+table.sales tr:nth-child(even) {
+  background: gray;
 }
 
 p {
   font-family: 'Crimson Text', serif;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 

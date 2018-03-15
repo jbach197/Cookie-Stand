@@ -3,7 +3,7 @@
 //Declare global variables
 var allLocations = [];
 var locationHoursArray = ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-var totalByHourArray = [];
+
 
 
 //Function for random number calc used in the object prototype.
@@ -12,29 +12,27 @@ function randomNumber(min, max) {
 }
 
 //Object Constructor
-function Location(locationName, minCustomers, maxCustomers, cookiePerSale, sales){
+function Location(locationName, minCustomers, maxCustomers, cookiePerSale){
   this.locationName = locationName;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avgCookiePerSale = cookiePerSale;
+  this.totalByHourArray = [];
   this.counterTotal = 0;
   allLocations.push(this);
 }
 
 //Function to calc the sales per location
 Location.prototype.cookieSales = function () {
-  var cookieSalesArray = [];
    
   for(var i = 0; i < locationHoursArray.length; i++) {
     
     var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
-    totalByHourArray.push(sales);
+    this.totalByHourArray.push(sales);
 
     this.counterTotal += sales;
-    cookieSalesArray.push(sales);
-    return cookieSalesArray;
-    }
   }
+}
 
 //Populate location data
 var pike = new Location('First and Pike', 23, 65, 6.3);
@@ -51,22 +49,22 @@ capitalHill.cookieSales();
 alki.cookieSales();
 
 //Total by hour
-console.log(cookieSalesArray);
 
-
-function totalByHour()  {
+/*function totalByHour()  {
   for(var i = 0; i < locationHoursArray.length; i++){
     var counter = 0;
-    for(var k= 0; k < totalByHourArray.length; k++) {
-
-        console.log(totalByHourArray);
-  
-   //   totalByDay.push();
+    for(var k= 0; k < allLocations.length; k++) {
+        var totalByHour = 0;
+        
+          totalByHour += locationName.totalByHourArray[k];
+        
+          consol.log(totalByHour);
+    }
   }
 }
-}
 totalByHour();
-
+*/
+console.log(allLocations);
 
 //Create table
 var salesTable = document.getElementById('sales');
@@ -79,13 +77,14 @@ function makeHeaderRow () {
   thElement.textContent = 'Location';
   headerTrElement.appendChild(thElement);
 
-    for(var i = 0; i <= locationHoursArray.length; i++){
+    for(var i = 0; i < locationHoursArray.length; i++){
     thElement = document.createElement('th');  
     thElement.textContent = locationHoursArray[i];
     headerTrElement.appendChild(thElement);
     }
-    thElement.textContent = 'Daily Location Total';
-    headerTrElement.appendChild(thElement);
+    var totalElement = document.createElement('th');
+    totalElement.textContent = 'Daily Location Total';
+    headerTrElement.appendChild(totalElement);
 
     salesTable.appendChild(headerTrElement);
 }
@@ -102,7 +101,7 @@ Location.prototype.render = function () {
   
   for(var i = 0; i < locationHoursArray.length; i++){
     tdElement = document.createElement('td');
-    tdElement.textContent = this.cookieSales();
+    tdElement.textContent = this.totalByHourArray[i];
     trElement.appendChild(tdElement);
 }
   tdElement = document.createElement('td');
@@ -141,23 +140,27 @@ function renderAllLocations () {
 //Add form
 var newLocationForm = document.getElementById('newLocationForm');
 
-function addNewLocation(event){
-  event.preventDefaullt();
+function addLocation(event){
+  event.preventDefault();
+  console.log(event.target.name.value);
 
-  var newlocationName = event.target.locationName.value;
-  var newMinCustomer = event.target.minCustomer.value;
-  var newMaxCustomer = event.target.maxCustomer.value;
-  var newAvgCookie = event.target.avgCookie.value;
+  var newName = event.target.name.value;
+  var minCust = event.target.minCust.value;
+  var maxCust = event.target.maxCust.value;
+  var avgCookie = event.target.avgCookie.value;
 
-  new Location(newlocationName, newMinCustomer, newMaxCustomer, newAvgCookie);
+  new Location(newName, minCust, maxCust, avgCookie);
 
   salesTable.innerHTML = '';
-
   makeHeaderRow();
   renderAllLocations();
   makeFooterRow();
 }
-newLocationForm.addEventListener('submit', addNewLocation);
+
+newLocationForm.addEventListener('submit', addLocation);
+
 makeHeaderRow();
 renderAllLocations();
 makeFooterRow();
+
+console.log(allLocations);
