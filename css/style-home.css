@@ -1,0 +1,60 @@
+body {
+  background-image: url("img/salmon.png");
+  background-repeat: repeat-y;
+}
+
+img.small {
+  width: 200px;
+  align: center;
+}
+
+h1 {
+  
+  color: rgb(6, 105, 80);
+  font-family: 'Cagliostro', sans-serif;
+  font-size: 3em;
+  text-align: center;
+
+}
+
+table.sales {
+  empty-cells: hide;
+  margin: 1em;
+}
+
+table.sales td:hover { 
+   color: red;
+   font-weight: bold;
+}
+
+table.sales tr:nth-child(odd) {
+  background: gray;
+}
+
+tr, td {
+  border-bottom: 2px solid rgb(6, 105, 80);
+}
+
+td {
+	padding: .75em;
+  background: white;
+}
+
+th {
+  background-color: rgb(104, 233, 201);
+  font-weight: bold;
+  text-align: center;
+  padding: .5em;
+}
+table.sales tr:nth-child(even) {
+  background: gray;
+}
+
+p {
+  font-family: 'Crimson Text', serif;
+  font-size: 1em;
+}
+
+
+
+/*font-family: 'Crimson Text', serif;**/
