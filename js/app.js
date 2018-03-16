@@ -12,7 +12,6 @@ var newLocationForm = document.getElementById('newLocationForm')
 function randomNumber(min, max) {
  // console.log(min,'fromrandom', max);
   return ((Math.random() * (max - min)) + min);
-  
 }
 
 //Object Constructor to create instances for locations
@@ -28,13 +27,11 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale){
 
 //Function to calc the sales per location
 Location.prototype.cookieSales = function () {
-   //console.log(this.minCustomers, this.maxCustomers, this.avgCookiePerSale);
-   console.log(randomNumber(this.minCustomers, this.maxCustomers));
+  this.counterTotal = 0;
   for(var i = 0; i < locationHoursArray.length; i++) {
     
     var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
-    this.totalByHourArray.push(sales);
-    //console.log(sales, this.locationName);
+    this.totalByHourArray.push(sales)
 
     this.counterTotal += sales;  //counter to keep a running total of sales
   }
@@ -48,23 +45,21 @@ var capitalHill = new Location('Capital Hill', 20, 38, 2.3);
 var alki = new Location('Alki', 2, 16, 4.6);
 
 //Calcuate total for each out
-
-/*function totalByHour()  {
+/*
+function totalByHour()  {
   for(var i = 0; i < locationHoursArray.length; i++){
-    var counter = 0;
+  
     for(var k= 0; k < allLocations.length; k++) {
         var totalByHour = 0;
-        
-          totalByHour += locationName.totalByHourArray[k];
-        
-          consol.log(totalByHour);
+
+   ;
+
+        console.log(totalByHour);
     }
   }
 }
 totalByHour();
 */
-
-
 //Create header row for the table
 function makeHeaderRow () {
   var headerTrElement = document.createElement('tr');

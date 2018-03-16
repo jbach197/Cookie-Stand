@@ -4,59 +4,59 @@ body {
 
 img.align-center {
   display: block;
+  margin: 50px;
+  width: 50%
 }
 img.small {
   width: 200px;
-  align: center;
 }
-
 h1 {
-  
   color: rgb(6, 105, 80);
   font-family: 'Cagliostro', sans-serif;
   font-size: 2.5em;
+  margin: .5em;
   text-align: center;
-
 }
-
 table.sales {
   empty-cells: hide;
   margin: 1em;
 }
-
 table.sales td:hover { 
    color: red;
    font-weight: bold;
 }
-
-table.sales tr:nth-child(odd) {
-  background: gray;
-}
-
 tr, td {
   border-bottom: 2px solid rgb(6, 105, 80);
 }
-
 td {
-	padding: .75em;
   background: white;
+	padding: .75em;
 }
-
 th {
   background-color: rgb(104, 233, 201);
   font-weight: bold;
-  text-align: center;
   padding: .5em;
+  text-align: center;
 }
-table.sales tr:nth-child(even) {
-  background: gray;
+input {
+  border: 2px solid rgb(6, 105, 80);
+  display: block;
+  margin: .5em;
+  padding: .25em;
 }
-
+input:hover {
+  background-color: rgb(104, 233, 201);
+}
+legend {
+  color: rgb(6, 105, 80);
+  font-family: 'Cagliostro', sans-serif;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: .5em;
+}
 p {
   font-family: 'Crimson Text', serif;
   font-size: 1em;
+  margin: .5em;
 }
-
-
-
 /*font-family: 'Crimson Text', serif;**/
