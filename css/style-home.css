@@ -1,10 +1,8 @@
 body {
-  background-color: rgb(255, 149, 137)
+  background-image: url("img/salmon.png");
+  background-repeat: repeat-y;
 }
 
-img.align-center {
-  display: block;
-}
 img.small {
   width: 200px;
   align: center;

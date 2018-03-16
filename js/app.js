@@ -2,16 +2,20 @@
 
 //Declare global variables
 var allLocations = [];
-var locationHoursArray = ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var locationHoursArray = ['6am' ,'7am' ,'8am', '9am', '10am', '11am', '12pm', '1pm', '2pm',   '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-
+//Declare HTML elements for table and form
+var salesTable = document.getElementById('sales');
+var newLocationForm = document.getElementById('newLocationForm')
 
 //Function for random number calc used in the object prototype.
 function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
+ // console.log(min,'fromrandom', max);
+  return ((Math.random() * (max - min)) + min);
+  
 }
 
-//Object Constructor
+//Object Constructor to create instances for locations
 function Location(locationName, minCustomers, maxCustomers, cookiePerSale){
   this.locationName = locationName;
   this.minCustomers = minCustomers;
@@ -24,31 +28,26 @@ function Location(locationName, minCustomers, maxCustomers, cookiePerSale){
 
 //Function to calc the sales per location
 Location.prototype.cookieSales = function () {
-   
+   //console.log(this.minCustomers, this.maxCustomers, this.avgCookiePerSale);
+   console.log(randomNumber(this.minCustomers, this.maxCustomers));
   for(var i = 0; i < locationHoursArray.length; i++) {
     
     var sales = Math.floor(randomNumber(this.minCustomers, this.maxCustomers) * this.avgCookiePerSale);
     this.totalByHourArray.push(sales);
+    //console.log(sales, this.locationName);
 
-    this.counterTotal += sales;
+    this.counterTotal += sales;  //counter to keep a running total of sales
   }
 }
 
-//Populate location data
+//Populate location data with constructor
 var pike = new Location('First and Pike', 23, 65, 6.3);
 var seaTac = new Location('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Location('Seattle Center', 11, 38, 3.7);
 var capitalHill = new Location('Capital Hill', 20, 38, 2.3);
 var alki = new Location('Alki', 2, 16, 4.6);
 
-//Call sales function to populate sales data
-pike.cookieSales();
-seaTac.cookieSales();
-seattleCenter.cookieSales();
-capitalHill.cookieSales();
-alki.cookieSales();
-
-//Total by hour
+//Calcuate total for each out
 
 /*function totalByHour()  {
   for(var i = 0; i < locationHoursArray.length; i++){
@@ -64,12 +63,9 @@ alki.cookieSales();
 }
 totalByHour();
 */
-console.log(allLocations);
 
-//Create table
-var salesTable = document.getElementById('sales');
 
-//Create header row
+//Create header row for the table
 function makeHeaderRow () {
   var headerTrElement = document.createElement('tr');
   var thElement = document.createElement('th');
@@ -89,9 +85,7 @@ function makeHeaderRow () {
     salesTable.appendChild(headerTrElement);
 }
 
-//makeHeaderRow();
-
-//Enter location sales data
+//Insert sales data into the table for each location
 Location.prototype.render = function () {
   var trElement = document.createElement('tr');
   var tdElement = document.createElement('td');
@@ -110,15 +104,7 @@ Location.prototype.render = function () {
 
    salesTable.appendChild(trElement);
 };
-
-//Call render functions
-//pike.render();
-//seaTac.render();
-//seattleCenter.render();
-//capitalHill.render();
-//alki.render();
-
-//Create footer row
+//Create table footer
 function makeFooterRow () {
   var headerTrElement = document.createElement('tr');
   var thElement = document.createElement('th');
@@ -129,38 +115,44 @@ function makeFooterRow () {
 
   salesTable.appendChild(headerTrElement);
 }
-//makeFooterRow();
 
+//Function to run the cookieSales function for all locations
+function cookieSalesAllLocations () {
+  for(var i in allLocations)  {
+    allLocations[i].cookieSales();
+  }
+}
+
+//Function to run render function for all locations
 function renderAllLocations () {
   for(var i in allLocations)  {
     allLocations[i].render();
   }
 }
 
-//Add form
-var newLocationForm = document.getElementById('newLocationForm');
-
+//Create event to add values user inputs onto form.
 function addLocation(event){
   event.preventDefault();
   console.log(event.target.name.value);
 
   var newName = event.target.name.value;
-  var minCust = event.target.minCust.value;
-  var maxCust = event.target.maxCust.value;
-  var avgCookie = event.target.avgCookie.value;
+  var minCust = parseInt(event.target.minCust.value);
+  var maxCust = parseInt(event.target.maxCust.value);
+  var avgCookie = parseInt(event.target.avgCookie.value);
 
   new Location(newName, minCust, maxCust, avgCookie);
 
   salesTable.innerHTML = '';
   makeHeaderRow();
+  cookieSalesAllLocations();
   renderAllLocations();
   makeFooterRow();
 }
 
 newLocationForm.addEventListener('submit', addLocation);
 
+//Run funcitons to create head/foot and load data
 makeHeaderRow();
+cookieSalesAllLocations();
 renderAllLocations();
 makeFooterRow();
-
-console.log(allLocations);
