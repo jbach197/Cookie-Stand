@@ -6,40 +6,19 @@ img.align-center {
   margin: 50px;
   width: 50%
 }
-img.xsmall {
-  width: 150px;
-  margin: 5px;
-}
 img.small {
   width: 300px;
-  margin: 5px;
 }
-.column1, .column2 {
-  width: 400px;
-  float: left;
-  margin: 1em;
-}
-.col1, .col2, .col3{
-  width: 250px;
-  float: left;
-  margin: 1em;
-}
-
 h1 {
   color: rgb(250, 122, 107);
-  font-family: 'Rammetto One', cursive;
+  font-family: 'Cagliostro', sans-serif;
   font-size: 2.5em;
   text-align: center;
 }
-h2, h3 {
+h2 {
   color: rgb(6, 105, 80);
   font-family: 'Cagliostro', sans-serif;
-}
-h2 {
-  font-size: 1.75em;
-}
-h3 {
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 nav ul {
   background: rgb(250, 122, 107);
