@@ -1,29 +1,6 @@
 body {
   background-color: rgb(255, 255, 204);
 }
-img.align-center {
-  display: block;
-  margin: 50px;
-  width: 50%
-}
-img.xsmall {
-  width: 150px;
-  margin: 5px;
-}
-img.small {
-  width: 300px;
-  margin: 5px;
-}
-.column1, .column2 {
-  width: 400px;
-  float: left;
-  margin: 1em;
-}
-.col1, .col2, .col3{
-  width: 250px;
-  float: left;
-  margin: 1em;
-}
 
 h1 {
   color: rgb(250, 122, 107);
@@ -40,6 +17,35 @@ h2 {
 }
 h3 {
   font-size: 1.25em;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%
+}
+img.xsmall {
+  width: 150px;
+  margin: 5px;
+}
+img.small {
+  width: 280px;
+  margin: 5px;
+}
+
+.column1 {
+  float: left;
+  margin: 1em;
+
+} .column2 {
+  float: right;
+  margin: 1em;
+  width: 70%;
+}
+.col1, .col2, .col3{
+  float: left;
+  margin: 1em;
+  width: 30%;
 }
 nav ul {
   background: rgb(250, 122, 107);

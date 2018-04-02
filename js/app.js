@@ -44,22 +44,26 @@ var seattleCenter = new Location('Seattle Center', 11, 38, 3.7);
 var capitalHill = new Location('Capital Hill', 20, 38, 2.3);
 var alki = new Location('Alki', 2, 16, 4.6);
 
-//Calcuate total for each out
+//Calcuate total for each hour at all locations
 /*
-function totalByHour()  {
+var grandTotalHourArray = [];
+var grandTotalByHour = 0;
+function totalByHours()  {
   for(var i = 0; i < locationHoursArray.length; i++){
-  
+    var hourlyTotal = 0
     for(var k= 0; k < allLocations.length; k++) {
-        var totalByHour = 0;
-
-   ;
-
-        console.log(totalByHour);
-    }
+        hourlyTotal = hourlyTotal + allLocations[k].totalByHourArray[i];
+        console.log(hourlyTotal)
+      }
+      console.log(hourlyTotal)
+    hourlyTotalAllLocation.push(hourlyTotal);
+    grandTotalByHour = grandTotalByHour = hourlyTotalAllLocation[i]; 
   }
 }
-totalByHour();
+
+totalByHours();
 */
+
 //Create header row for the table
 function makeHeaderRow () {
   var headerTrElement = document.createElement('tr');
